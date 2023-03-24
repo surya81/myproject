@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>selling price prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
 
+<body style="background: #000;">
+ <div class="login">
+	<h1>Sales Forecasting</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <input type="text" name="quantity_tons" placeholder="quantity_tons" required="required" />
+    <input type="text" name="customer" placeholder="customer_code" required="required" />
+		<input type="text" name="country" placeholder="country_code" required="required" />
+    <input type="text" name="status" placeholder="status_code" required="required" />
+    <input type="text" name="product_ref" placeholder="product_ref_code" required="required" />
+    <input type="text" name="Area" placeholder="Area_code" required="required" />
+    <input type="text" name="Date difference" placeholder="Date difference between ordered and delivery" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict selling price of items</button>
+    </form>
+
+   <br>
+   <br>
+   <h2>{{ prediction_text }}</h2>
+     </div>
+</body>
+</html>
